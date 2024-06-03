@@ -1,0 +1,259 @@
+html, body{
+    padding: 0;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    font-family: Helvetica, Arial, sans-serif
+}
+
+.header {
+    height: 55px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.date {
+    font-size: 16px;
+    margin: 0;
+}
+
+.slider{
+    width: 800px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.slides{
+    width: 2400%;
+    height: 600px;
+    display: flex;
+    position: relative;
+}
+
+.slides input{
+    display: none;
+}
+
+.slide{
+    width: 4.2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: 2s;
+}
+
+.image-caption-container {
+    display: table;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.image-caption-container img {
+    display: table-cell;
+    max-width: 800px;
+    max-height: 500px;
+    object-fit: contain;
+    margin: auto;
+}
+
+.caption {
+    display: table-caption;
+    caption-side: bottom;
+    max-width: 100%;
+    min-width: 500px;
+    padding: 10px;
+    color: black;
+    font-size: 14px;
+    text-align: center;
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
+    position: absolute;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    bottom: 0;  
+    align-items: center;
+}
+
+.manual-btn{
+    border: 2px solid #1b99ce;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+    margin-right: 5px;
+}
+
+.manual-btn:hover{
+    background: #1b99ce;
+}
+
+.back-arrow, .next-arrow {
+    background-color:transparent;
+    color: #1b99ce;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    transition: 0.1s;
+    transform: translateY(-2.5px);
+    position: absolute;
+}
+
+.back-arrow {
+    left: 155px;
+}
+
+.next-arrow {
+    right: 161px;
+}
+
+.back-arrow:hover, .next-arrow:hover{
+    font-size: 40px;
+}
+
+.back-arrow:onclick, .next-arrow:onclick{
+    font-size: 50px;
+}
+
+#radio1:checked ~ .first{
+    margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+    margin-left: -4.2%;
+}
+
+#radio3:checked ~ .first{
+    margin-left: -8.4%;
+}
+
+#radio4:checked ~ .first{
+    margin-left: -12.6%;
+}
+
+#radio5:checked ~ .first{
+    margin-left: -16.8%;
+}
+
+#radio6:checked ~ .first{
+    margin-left: -21%;
+}
+
+#radio7:checked ~ .first{
+    margin-left: -25.2%;
+}
+
+#radio8:checked ~ .first{
+    margin-left: -29.4%;
+}
+
+#radio9:checked ~ .first{
+    margin-left: -33.6%;
+}
+
+#radio10:checked ~ .first{
+    margin-left: -37.8%;
+}
+
+#radio11:checked ~ .first{
+    margin-left: -42%;
+}
+
+#radio12:checked ~ .first{
+    margin-left: -46.2%;
+}
+
+#radio13:checked ~ .first{
+    margin-left: -50.4%;
+}
+
+#radio14:checked ~ .first{
+    margin-left: -54.6%;
+}
+
+#radio15:checked ~ .first{
+    margin-left: -58.8%;
+}
+
+#radio16:checked ~ .first{
+    margin-left: -63%;
+}
+
+#radio17:checked ~ .first{
+    margin-left: -67.2%;
+}
+
+#radio18:checked ~ .first{
+    margin-left: -71.4%;
+}
+
+#radio19:checked ~ .first{
+    margin-left: -75.6%;
+}
+
+#radio20:checked ~ .first{
+    margin-left: -79.8%;
+}
+
+#radio21:checked ~ .first{
+    margin-left: -84%;
+}
+
+#radio22:checked ~ .first{
+    margin-left: -88.2%;
+}
+
+#radio23:checked ~ .first{
+    margin-left: -92.4%;
+}
+
+#radio24:checked ~ .first{
+    margin-left: -96.6%;
+}
+
+#radio1:checked ~ .navigation-manual label[for="radio1"],
+#radio2:checked ~ .navigation-manual label[for="radio2"],
+#radio3:checked ~ .navigation-manual label[for="radio3"],
+#radio4:checked ~ .navigation-manual label[for="radio4"],
+#radio5:checked ~ .navigation-manual label[for="radio5"],
+#radio6:checked ~ .navigation-manual label[for="radio6"],
+#radio7:checked ~ .navigation-manual label[for="radio7"],
+#radio8:checked ~ .navigation-manual label[for="radio8"],
+#radio9:checked ~ .navigation-manual label[for="radio9"],
+#radio10:checked ~ .navigation-manual label[for="radio10"],
+#radio11:checked ~ .navigation-manual label[for="radio11"],
+#radio12:checked ~ .navigation-manual label[for="radio12"],
+#radio13:checked ~ .navigation-manual label[for="radio13"],
+#radio14:checked ~ .navigation-manual label[for="radio14"],
+#radio15:checked ~ .navigation-manual label[for="radio15"],
+#radio16:checked ~ .navigation-manual label[for="radio16"],
+#radio17:checked ~ .navigation-manual label[for="radio17"],
+#radio18:checked ~ .navigation-manual label[for="radio18"],
+#radio19:checked ~ .navigation-manual label[for="radio19"],
+#radio20:checked ~ .navigation-manual label[for="radio20"],
+#radio21:checked ~ .navigation-manual label[for="radio21"],
+#radio22:checked ~ .navigation-manual label[for="radio22"],
+#radio23:checked ~ .navigation-manual label[for="radio23"],
+#radio24:checked ~ .navigation-manual label[for="radio24"] {
+    background: #1b99ce;
+}
