@@ -1,5 +1,3 @@
-//Expanding vf width, centering slideshow
-
 function isChecked(button) {
     if (button.checked == true)
         return true;
@@ -89,22 +87,27 @@ document.addEventListener("keydown", function(event) {
 });
 
 // Touchscreen swipe functionality
-let touchStart;
-let touchEnd;
-let picture = document.querySelector(".picture-slide");
+let touchStartX = 0;
+let touchEndX = 0;
+let picture = document.querySelector(".picture-strip");
 
 picture.addEventListener('touchstart', function(event) {
-    touchStart = event.changedTouches[0];
+    touchStartX = event.changedTouches[0].screenX;
 });
 
 picture.addEventListener('touchend', function(event) {
-    touchEnd = event.changedTouches[0];
+    touchEndX = event.changedTouches[0].screenX;
+    processSwipe();
+});
 
-    if(touchEnd.screenX - touchStart.screenX < 0) {
+const swipeThreshold = 50;
+
+function processSwipe() {
+    if (touchEndX < touchStartX - swipeThreshold) {
         previousSlide();
-    } else if (touchEnd.screenX - touchStart.screenX >0) {
+    } else if (touchEndX > touchStartX + swipeThreshold) {
         nextSlide();
     }
-});
+}
 
 
