@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    /* outline: 2px solid rgba(255, 0, 0, 0.471); */
+}
+
+html, body {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    align-content: center;
+    height: 70px;
+    padding-bottom: 10px;
+}
+
+.title h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.title p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.everything {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.picture-strip {
+    width: 8000px;  /* 10 pictures by 800px width each = 8000px */
+    display: flex;
+    /* overflow: visible; */
+}
+
+.picture-slide {
+    width: 800px;
+    height: 500px;
+}
+
+.picture-slide img {
+    max-width: 800px;
+    max-height: 500px;
+    display: block;
+    margin: auto;
+}
+
+.caption-strip {
+    width: 8000px;
+    display: flex;
+}
+
+.caption {
+    width: 800px;
+    height: 70px;
+    padding-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.interactive-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+input {
+    display: none;
+}
+
+label {
+    border: 2px solid #1b99ce;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3px; /*because they don't align with arrows */
+    cursor: pointer;
+    transition: 1s;
+}
+
+label:hover {
+    background: #1b99ce;
+}
+
+#radio1:checked ~ label[for="radio1"],
+#radio2:checked ~ label[for="radio2"],
+#radio3:checked ~ label[for="radio3"],
+#radio4:checked ~ label[for="radio4"],
+#radio5:checked ~ label[for="radio5"],
+#radio6:checked ~ label[for="radio6"],
+#radio7:checked ~ label[for="radio7"],
+#radio8:checked ~ label[for="radio8"],
+#radio9:checked ~ label[for="radio9"],
+#radio10:checked ~ label[for="radio10"] {
+    background: #1b99ce;
+}
+
+.left-arrow, .right-arrow {
+    margin: 0 -5px;
+    transition: .5s;
+    color: #1b99ce;
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}    
+
+.left-arrow:hover, .right-arrow:hover {
+    scale: 1.5;
+}
+
