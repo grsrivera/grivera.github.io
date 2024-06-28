@@ -1,78 +1,140 @@
-function isChecked(button) {
-    if (button.checked == true)
-        return true;
-}
+// 2 lines customizable to accomodate different number of photos:
+// Line 38: Set index of last picture (using its radio button)
+// Line 55: Set index of last picture (using its radio button)
+
 
 let radioButtons;
-let checkedButtonIndex;
 let pictureStrip = document.querySelector(".picture-strip");
 let captionStrip = document.querySelector(".caption-strip");
+let labelStrip = document.querySelector(".label-strip");
+let slideIndicator = document.querySelector(".slide-indicator");
+let timer;
+let nextRadioButton; 
+let radioButtonLabels = document.querySelectorAll('label[class-radio-button-label');
+let checkedButtonIndex;
+let leftArrow = document.querySelector(".left-arrow");
+let rightArrow = document.querySelector(".right-arrow");
+
+// This function finds what radio button is checked
+
+function findCheckedButton() {
+    radioButtons = document.querySelectorAll("input[name='radio-buttons']");
+    radioButtons = Array.from(radioButtons);
+
+    return radioButtons.findIndex(function(button) {
+        if (button.checked ==true) {
+            return true;
+        }    
+    }) 
+}
+
+// This slides the strips along in order to change the displayed picture.
+// There are 3 strips: picture strip, caption strip, and 
+//  radio-button strip (as the user cycles through–there are only 7 displayed at a time)
 
 function moveStrips() {
-    //Find checked radio button first
-    radioButtons = document.querySelectorAll("input[name='radio-buttons']"); 
-    radioButtons = Array.from(radioButtons);
-
-    checkedButtonIndex = radioButtons.findIndex(isChecked);
-
     pictureStrip.style.marginLeft = -checkedButtonIndex * 800 + 'px';
     captionStrip.style.marginLeft = -checkedButtonIndex * 800 + 'px';
+
+    if (checkedButtonIndex >= 6) {
+        labelStrip.style.marginLeft = "-71px"; // -75 + 4px needed to center in viewport
+        
+    } else {
+        labelStrip.style.marginLeft = "4px";
+    }
+    
+    activeStyling();
 };
 
-// This function is for the arrows. It changes the checked radio button then calls moveStrips.
+// This function makes styling changes as the user clicks through the picture set
+// 1. The circular buttons on the ends will be smaller if there are additional pictures to click through
+//      If the user is at the end, the button will be normal sized
+// 2. Update the display on the slide indicator
+//   a. The slide indicator disappears after some time then reappears when the user clicks
 
-let nextRadioButton; 
+function activeStyling() {
+    // Update labels nodeList
+    radioButtonLabels = document.querySelectorAll('label[class=radio-button-label]');
+
+    if (checkedButtonIndex <=5) {
+        radioButtonLabels[5].style.scale = "1.0";
+        radioButtonLabels[6].style.scale = "0.5";
+    } else if (checkedButtonIndex >5) {
+        radioButtonLabels[5].style.scale = "0.5";
+        radioButtonLabels[6].style.scale = "1.0";
+    }
+
+    slideIndicator.textContent = (checkedButtonIndex + 1) + '/11';
+
+    // Makes slide indicator appear and disappear
+
+    clearTimeout(timer);
+
+    slideIndicator.classList.remove("invis");
+        
+    timer = setTimeout(function() {
+        slideIndicator.classList.add("invis");
+    }, 2000);   
+}
+
+// These 2 functions arefor the arrows. They change the checked radio button then calls moveStrips.
 
 function previousSlide() {
-    //Find the checked radio button first again
-    radioButtons = document.querySelectorAll("input[name='radio-buttons']"); 
-    radioButtons = Array.from(radioButtons);
-
-    checkedButtonIndex = radioButtons.findIndex(isChecked);
-
     // Go to last slide if currently on first slide.
-    if (checkedButtonIndex == 0) { //Change index below!!
-        radioButtons[9].checked = true; // Last button is index 9 with 10 pictures
+    if (checkedButtonIndex == 0) {
+        radioButtons[10].checked = true; // <--- Edit here. Last button is index 10 with 11 pictures
+        checkedButtonIndex = 10;
     } else {
         radioButtons[checkedButtonIndex - 1].checked = true;
+        checkedButtonIndex--;
     }
 
     moveStrips();
 }
 
 function nextSlide() {
-    //Find the checked radio button first again
-    radioButtons = document.querySelectorAll("input[name='radio-buttons']"); 
-    radioButtons = Array.from(radioButtons);
-
-    checkedButtonIndex = radioButtons.findIndex(isChecked);
-
     // Go to first slide if currently on last slide.
-    if (checkedButtonIndex == 9) { //Change this index later!
+    if (checkedButtonIndex == 10) { // <--- Edit here.>
         radioButtons[0].checked = true; 
+        checkedButtonIndex = 0;
     } else {
         radioButtons[checkedButtonIndex + 1].checked = true;
+        checkedButtonIndex++;
     }
 
     moveStrips();
 }
 
+// Here is the main body of the 
+// Begin slideshow with slide indicator displayed for one cycle
+
+setTimeout(function() {
+    slideIndicator.classList.add("invis");
+}, 2500);
+
 // Functionality of buttons. Add event listener to each button label (radio buttons are hidden)
-let radioButtonLabels = document.querySelectorAll(".radio-button-label");
+// Find index of checked (with 200ms delay to allow 'checked' property of radios update) then moveButtons
 
 for (buttonLabel of radioButtonLabels) {
     buttonLabel.addEventListener("click", function() { 
-    setTimeout(moveStrips, 200);
-    }
-)};
+        setTimeout(function() {
+            checkedButtonIndex = findCheckedButton();
+            moveStrips();
+        }, 200)
+    })
+};
 
-// Functionality of arrows
-let leftArrow = document.querySelector(".left-arrow");
-let rightArrow = document.querySelector(".right-arrow");
+// Functionality of arrow buttons
 
+leftArrow.addEventListener("click", function() {
+    checkedButtonIndex = findCheckedButton();
+    previousSlide();
+});
 
-leftArrow.addEventListener("click", previousSlide);
-rightArrow.addEventListener("click", nextSlide);
+rightArrow.addEventListener("click", function() {
+    checkedButtonIndex = findCheckedButton();
+    nextSlide();
+});
 
 document.addEventListener("keydown", function(event) {
     if (event.key == "ArrowLeft" || event.key == "ArrowRight") {
@@ -87,27 +149,25 @@ document.addEventListener("keydown", function(event) {
 });
 
 // Touchscreen swipe functionality
-let touchStartX = 0;
-let touchEndX = 0;
-let picture = document.querySelector(".picture-strip");
+// let touchStartX = 0;
+// let touchEndX = 0;
+// let picture = document.querySelector(".picture-strip");
 
-picture.addEventListener('touchstart', function(event) {
-    touchStartX = event.changedTouches[0].screenX;
-});
+// picture.addEventListener('touchstart', function(event) {
+//     touchStartX = event.changedTouches[0].screenX;
+// });
 
-picture.addEventListener('touchend', function(event) {
-    touchEndX = event.changedTouches[0].screenX;
-    processSwipe();
-});
+// picture.addEventListener('touchend', function(event) {
+//     touchEndX = event.changedTouches[0].screenX;
+//     processSwipe();
+// });
 
-const swipeThreshold = 50;
+// const swipeThreshold = 50;
 
-function processSwipe() {
-    if (touchEndX < touchStartX - swipeThreshold) {
-        previousSlide();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
-        nextSlide();
-    }
-}
-
-
+// function processSwipe() {
+//     if (touchEndX < touchStartX - swipeThreshold) {
+//         previousSlide();
+//     } else if (touchEndX > touchStartX + swipeThreshold) {
+//         nextSlide();
+//     }
+// }

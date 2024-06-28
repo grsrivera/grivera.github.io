@@ -1,3 +1,11 @@
+<!--
+
+Note: One line customized for fit:
+1. Line 83: Added padding to ensure caption fits within picture width 
+2. Line 29: 1/# pics
+ -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +16,8 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Inter">
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://kit.fontawesome.com/148a096976.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="everything">
@@ -47,6 +57,9 @@
       <div class="picture-slide">
         <img src="./Photos/PolarPlunge.jpg" alt="Polar plunge">  
       </div>
+      <div class="picture-slide">
+        <img src="./Photos/IMG_1556.JPG" alt="Tierra del Fuego">  
+      </div>
     </div>
 
     <div class="caption-strip">
@@ -69,7 +82,7 @@
       <div class="caption">
         Shot taken while hiking the Antarctic Peninsula near Danco Coast
       </div>
-      <div class="caption">
+      <div class="caption" style="padding-left: 20px; padding-right: 23px;">
         More from the Antarctic Peninsula. Our ship, the MV Ushuaia, is in the distance. (I don't recommend riding this ship if you go to Antarctica. It's a former research vessel that rocks a lot even in not-so-bad seas. I got sick in the Drake even on Dramamine.)
       </div>
       <div class="caption">
@@ -81,32 +94,51 @@
       <div class="caption">
         Polar plunge. Water temp was 35F.
       </div>
+      <div class="caption">
+        Taken on a hike in Tierra del Fuego National Park, Argentina
+      </div>
     </div>
 
     <div class="interactive-container">
-      <input type="radio" name="radio-buttons" id="radio1" checked>
-      <input type="radio" name="radio-buttons" id="radio2">
-      <input type="radio" name="radio-buttons" id="radio3">
-      <input type="radio" name="radio-buttons" id="radio4">
-      <input type="radio" name="radio-buttons" id="radio5">
-      <input type="radio" name="radio-buttons" id="radio6">
-      <input type="radio" name="radio-buttons" id="radio7">
-      <input type="radio" name="radio-buttons" id="radio8">
-      <input type="radio" name="radio-buttons" id="radio9">
-      <input type="radio" name="radio-buttons" id="radio10">
+      <div class="slide-indicator">
+        <span>1/11</span>
+      </div>
 
-      <button class="left-arrow">&#8249;</button>
-      <label for="radio1" class="radio-button-label"></label>
-      <label for="radio2" class="radio-button-label"></label>
-      <label for="radio3" class="radio-button-label"></label>
-      <label for="radio4" class="radio-button-label"></label>
-      <label for="radio5" class="radio-button-label"></label>
-      <label for="radio6" class="radio-button-label"></label>
-      <label for="radio7" class="radio-button-label"></label>
-      <label for="radio8" class="radio-button-label"></label>
-      <label for="radio9" class="radio-button-label"></label>
-      <label for="radio10" class="radio-button-label"></label>
-      <button class="right-arrow">&#8250;</button>
+      <button class="left-arrow">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+
+      <div class="button-viewport"> <!-- Need this container because labels are in-line elements that will be squished -->
+        <div class="label-strip">
+          <input type="radio" name="radio-buttons" id="radio0" checked>
+          <input type="radio" name="radio-buttons" id="radio1">
+          <input type="radio" name="radio-buttons" id="radio2">
+          <input type="radio" name="radio-buttons" id="radio3">
+          <input type="radio" name="radio-buttons" id="radio4">
+          <input type="radio" name="radio-buttons" id="radio5">
+          <input type="radio" name="radio-buttons" id="radio6">
+          <input type="radio" name="radio-buttons" id="radio7">
+          <input type="radio" name="radio-buttons" id="radio8">
+          <input type="radio" name="radio-buttons" id="radio9">
+          <input type="radio" name="radio-buttons" id="radio10">
+
+          <label for="radio0" class="radio-button-label"></label>
+          <label for="radio1" class="radio-button-label"></label>
+          <label for="radio2" class="radio-button-label"></label>
+          <label for="radio3" class="radio-button-label"></label>
+          <label for="radio4" class="radio-button-label"></label>
+          <label for="radio5" class="radio-button-label"></label>
+          <label for="radio6" class="radio-button-label"></label>
+          <label for="radio7" class="radio-button-label"></label>
+          <label for="radio8" class="radio-button-label"></label>
+          <label for="radio9" class="radio-button-label"></label>
+          <label for="radio10" class="radio-button-label"></label>
+        </div>
+      </div>
+
+      <button class="right-arrow">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
     </div>
   </div>
 
