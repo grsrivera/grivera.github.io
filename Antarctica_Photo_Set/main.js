@@ -10,7 +10,7 @@ let labelStrip = document.querySelector(".label-strip");
 let slideIndicator = document.querySelector(".slide-indicator");
 let timer;
 let nextRadioButton; 
-let radioButtonLabels = document.querySelectorAll('label[class-radio-button-label');
+let radioButtonLabels = document.querySelectorAll('label[class=radio-button-label]');
 let checkedButtonIndex;
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
@@ -77,7 +77,7 @@ function activeStyling() {
     }, 2000);   
 }
 
-// These 2 functions arefor the arrows. They change the checked radio button then calls moveStrips.
+// These 2 functions are for the arrows. They change the checked radio button then calls moveStrips.
 
 function previousSlide() {
     // Go to last slide if currently on first slide.
