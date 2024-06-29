@@ -37,10 +37,10 @@ function moveStrips() {
     captionStrip.style.marginLeft = -checkedButtonIndex * 800 + 'px';
 
     if (checkedButtonIndex >= 6) {
-        labelStrip.style.marginLeft = "-71px"; // -75 + 4px needed to center in viewport
+        labelStrip.style.marginLeft = "-123px"; // -5*25px + 2px needed to center in viewport
         
     } else {
-        labelStrip.style.marginLeft = "4px";
+        labelStrip.style.marginLeft = "2px";
     }
     
     activeStyling();
