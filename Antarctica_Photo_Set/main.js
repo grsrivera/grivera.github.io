@@ -2,7 +2,6 @@
 // Line 38: Set index of last picture (using its radio button)
 // Line 55: Set index of last picture (using its radio button)
 
-
 let radioButtons;
 let strip = document.querySelector(".strip");
 let labelStrip = document.querySelector(".label-strip");
@@ -13,6 +12,7 @@ let radioButtonLabels = document.querySelectorAll('label[class=radio-button-labe
 let checkedButtonIndex;
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
+let i;
 
 // This function finds what radio button is checked
 
@@ -31,14 +31,13 @@ function findCheckedButton() {
 // There are 2 strips: strip (which has pictures and captions) and the 
 //  radio-button strip (aka. labelStrip because only labels are displayed), (as the user cycles through–there are only 7 displayed at a time)
 
-function moveStrip() {
+function moveStrips() {
     strip.style.marginLeft = -checkedButtonIndex * 820 + 'px';
 
     if (checkedButtonIndex >= 6) {
-        labelStrip.style.marginLeft = "-123px"; // -5*25px + 2px needed to center in viewport
-        
-    } else {
-        labelStrip.style.marginLeft = "4px";
+        labelStrip.style.marginLeft = -5*25 + 2 + 'px';  // -5*25px + 2px needed to center in viewport
+    } else {                                             // (n-1)*25px ... 25px is width of a button + 1 gap of 5px
+        labelStrip.style.marginLeft = "2px";
     }
     
     activeStyling();
@@ -54,12 +53,14 @@ function activeStyling() {
     // Update labels nodeList
     radioButtonLabels = document.querySelectorAll('label[class=radio-button-label]');
 
-    if (checkedButtonIndex <=5) {
-        radioButtonLabels[5].style.scale = "1.0";
-        radioButtonLabels[6].style.scale = "0.5";
-    } else if (checkedButtonIndex >5) {
+    for (i=0; i < 11; i++) {
+        radioButtonLabels[i].style.scale = "1.0";
+    }
+
+    if (checkedButtonIndex > 5) {
         radioButtonLabels[5].style.scale = "0.5";
-        radioButtonLabels[6].style.scale = "1.0";
+    } else {                                      
+        radioButtonLabels[6].style.scale = "0.5";
     }
 
     slideIndicator.textContent = (checkedButtonIndex + 1) + '/11';
@@ -87,7 +88,7 @@ function previousSlide() {
         checkedButtonIndex--;
     }
 
-    moveStrip();
+    moveStrips();
 }
 
 function nextSlide() {
@@ -100,7 +101,7 @@ function nextSlide() {
         checkedButtonIndex++;
     }
 
-    moveStrip();
+    moveStrips();
 }
 
 // Here is the main body of the 
@@ -118,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function() {
         buttonLabel.addEventListener("click", function() { 
             setTimeout(function() {
                 checkedButtonIndex = findCheckedButton();
-                moveStrip();
+                moveStrips();
             }, 200)
         })
     }
@@ -149,8 +150,8 @@ document.addEventListener("keydown", function(event) {
 });
 
 // Touchscreen swipe functionality
-let touchStartX = 0;
-let touchEndX = 0;
+let touchStartX;
+let touchEndX;
 let picture = document.querySelector(".strip");
 
 picture.addEventListener('touchstart', function(event) {
@@ -165,9 +166,11 @@ picture.addEventListener('touchend', function(event) {
 const swipeThreshold = 50;
 
 function processSwipe() {
+    checkedButtonIndex = findCheckedButton();
+
     if (touchEndX < touchStartX - swipeThreshold) {
-        previousSlide();
-    } else if (touchEndX > touchStartX + swipeThreshold) {
         nextSlide();
+    } else if (touchEndX > touchStartX + swipeThreshold) {
+        previousSlide();
     }
 }
