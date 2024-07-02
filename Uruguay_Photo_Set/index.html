@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Uruguay Photo Set</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../0_Photo_Set_Template/template.css">
+
+    <script src="https://kit.fontawesome.com/148a096976.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="everything">
+    <div class="title">
+      <h1>Uruguay</h1>
+      <p>May 9<sup>th</sup> – 16<sup>th</sup>, 2023</p>
+    </div>
+
+    <div class="strip">
+      <div class="slide">
+        <div class="picture-box"> 
+          <img src="./Photos/1_IndependenceSquare.JPG" alt="Independence Square">
+        </div>
+        <div class="caption">
+          Independence Square in Montevideo, Uruguay. José Artigas is considered the founder of Uruguay; his crypt is below his statue in the center of the square. The gate of the old city is found at the far end of the square.
+        </div>  
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/2_Tango.JPG" alt="Who created tango?">  
+        </div>
+        <div class="caption" style="height: 100px";>
+          La Cumparsita was written and first played in the La Giralda cafe and is considered the anthem of tango today. The origin of tango is disputed: Uruguay claims it was invented in Montevideo while Argentina claims it was invented up the Río de la Plata in Buenos Aires. Photo taken at the Museo del Tango, which is where the La Giralda once stood in Independence Square.
+        </div>
+      </div>  
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/3_Hills.JPG" alt="Uruguayan countryside">  
+        </div>
+        <div class="caption" style="padding: 15px 36px 0 36px;">
+          The rolling hills of Uruguay. Much of the country looks like this. Taken near the city of Colonia del Sacramento.
+        </div>
+      </div>
+      <div class="slide">  
+        <div class="picture-box">
+          <img src="./Photos/4_Factory_1.JPG" alt="The Anglo power plant">  
+        </div>
+        <div class="caption" style="height: 100px";>
+          The power plant of the Anglo Meatpacking Factory in Fray Bentos, Uruguay. The factory is actually a World Heritage Site. The first place in the country to produce electricity and centralize production, its products were consumed by Allied armies in both world wars, explorers in Antarctica, and astronauts in orbit. Arguably, it brought the country into the Industrial Age and the global market.
+        </div>
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/5_Factory_2.JPG" alt="The Anglo slaughterhouse">  
+        </div>
+        <div class="caption" style="height: 100px;"> 
+          Pictured is part of the slaughterhouse. The most popular products were meat extract and corned beef; however, the company claimed they processed everything but the cow's "moo". Beef is still a main export of Uruguay. Today, there are 4 cattle per capita, which is 12 million cows!
+        </div>
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/6_Bridge.JPG" alt="Carmelo Bridge">  
+        </div>
+        <div class="caption">
+          My friend wanted to show me this bridge in the city of Carmelo for its design
+        </div>
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/7_Carnaval.JPG" alt="Carnaval festivities">  
+        </div>
+        <div class="caption" style="padding: 15px 42px 0 42px;">
+          Coincidentally, the town was having this Carnaval-style festival which seemed to attract all 20,000 residents. We learned that each year they celebrate the completion of the bridge, which marked its 111th anniversary that year.
+        </div>
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/8_ArtMuseum.JPG" alt="The National Museum of Visual Arts">  
+        </div>
+        <div class="caption">
+          Taken at the National Museum of Visual Arts in Montevideo
+        </div>
+      </div>
+
+    </div>
+
+    <div class="interactive-container">
+      <div class="slide-indicator">
+        <span>1/8</span>
+      </div>
+
+      <button class="left-arrow">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+
+      <div class="button-viewport"> <!-- Need this container because labels are in-line elements that will be squished -->
+        <div class="label-strip">
+          <input type="radio" name="radio-buttons" id="radio0" checked>
+          <input type="radio" name="radio-buttons" id="radio1">
+          <input type="radio" name="radio-buttons" id="radio2">
+          <input type="radio" name="radio-buttons" id="radio3">
+          <input type="radio" name="radio-buttons" id="radio4">
+          <input type="radio" name="radio-buttons" id="radio5">
+          <input type="radio" name="radio-buttons" id="radio6">
+          <input type="radio" name="radio-buttons" id="radio7">
+
+          <label for="radio0" class="radio-button-label"></label>
+          <label for="radio1" class="radio-button-label"></label>
+          <label for="radio2" class="radio-button-label"></label>
+          <label for="radio3" class="radio-button-label"></label>
+          <label for="radio4" class="radio-button-label"></label>
+          <label for="radio5" class="radio-button-label"></label>
+          <label for="radio6" class="radio-button-label"></label>
+          <label for="radio7" class="radio-button-label"></label>
+        </div>
+      </div>
+
+      <button class="right-arrow">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="../0_Photo_Set_Template/template.js"></script> 
+
+</body>
+</html>

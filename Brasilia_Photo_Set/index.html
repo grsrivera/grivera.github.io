@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Brasília Photo Set</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../0_Photo_Set_Template/template.css">
+
+    <script src="https://kit.fontawesome.com/148a096976.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="everything">
+    <div class="title">
+      <h1>Brasília</h1>
+      <p>May 3<sup>rd</sup> – 6<sup>th</sup>, 2023</p>
+    </div>
+
+    <div class="strip">
+
+      <div class="slide">
+        <div class="picture-box"> 
+          <img src="./Photos/1_Fuselage.JPG" alt="The airplane">
+        </div>
+        <div class="caption" style="height: 100px;">
+          Looking down the "fuselage" of Brasília, Brazil's planned capital. The layout of the city was supposed to resemble a cross, but the topography forced the shape into more of an airplane with swept wings after they diverted the two rivers seen in the top corners to form Lake Paranoá for increased humidity. All federal buildings are along this strip.
+        </div>  
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/2_Cockpit.JPG" alt="The cockpit">  
+        </div>
+        <div class="caption" style="height: 100px;">
+          The buildings of the government's three branches are found in the "cockpit". Pictured is the legislative building. The half-dome on the left houses the Senate (upper house), the one on the right the Chamber of Deputies (lower house); together, they become one Congress. (Cheesy!) Offices are in the towers.
+        </div>
+      </div>  
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/3_Cathedral.JPG" alt="Cathedral">  
+        </div>
+        <div class="caption" style="height: 100px;">
+          Brasília was designed by the modernist Oscar Niemeyer (helped design the UN headquarters in NY). The building that looks like a crown is the Cathedral of Brasília with its Eucharistic bell tower and baptistery. The dome on the right is the National Museum of the Republic. I felt like I was in a Jetsons episode.
+        </div>
+      </div>
+      <div class="slide">  
+        <div class="picture-box">
+          <img src="./Photos/4_Apartments.jpg" alt="Apartments">  
+        </div>
+        <div class="caption" style="padding: 15px 30px 0 30px; height: 100px;">
+          The residential areas are in the "wings". The apartment on the left is where I stayed. There are 120 blocks in the city that each have apartments like these; every four blocks makes a neighborhood with its own school, church, and commercial area. The designers thought this layout would foster community and prevent traffic because residents would spend most of their time in their neighborhoods. The locals told me it doesn't do either.
+        </div>
+      </div>
+      <div class="slide">
+        <div class="picture-box">
+          <img src="./Photos/5_JK.JPG" alt="JK Memorial">  
+        </div>
+        <div class="caption" style="height: 100px; padding: 15px 34px 0 34px;" > 
+          The JK Memorial for Juscelino Kubitschek, the president who ordered Brasília be constructed in only five years from 1956 to 1961. The entire city is a UNESCO World Heritage Site. Locals discouraged me from visiting the capital because of the strange architecture and "lack of culture", but I found it interesting and am glad I went.
+        </div>
+      </div>
+  
+    </div>
+
+    <div class="interactive-container">
+      <div class="slide-indicator">
+        <span>1/5</span>
+      </div>
+
+      <button class="left-arrow">
+        <i class="fa-solid fa-angle-left"></i>
+      </button>
+
+      <div class="button-viewport"> <!-- Need this container because labels are in-line elements that will be squished -->
+        <div class="label-strip">
+          <input type="radio" name="radio-buttons" id="radio0" checked>
+          <input type="radio" name="radio-buttons" id="radio1">
+          <input type="radio" name="radio-buttons" id="radio2">
+          <input type="radio" name="radio-buttons" id="radio3">
+          <input type="radio" name="radio-buttons" id="radio4">
+          
+          <label for="radio0" class="radio-button-label"></label>
+          <label for="radio1" class="radio-button-label"></label>
+          <label for="radio2" class="radio-button-label"></label>
+          <label for="radio3" class="radio-button-label"></label>
+          <label for="radio4" class="radio-button-label"></label>
+        </div>
+      </div>
+
+      <button class="right-arrow">
+        <i class="fa-solid fa-angle-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <script src="../0_Photo_Set_Template/template.js"></script> 
+
+</body>
+</html>
