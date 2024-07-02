@@ -81,8 +81,8 @@ function activeStyling() {
 function previousSlide() {
     // Go to last slide if currently on first slide.
     if (checkedButtonIndex == 0) {
-        radioButtons[10].checked = true; // <--- Edit here. Last button is index 10 with 11 pictures
-        checkedButtonIndex = 10;
+        radioButtons[radioButtons.length - 1].checked = true; // <--- Edit here. Last button is index 10 with 11 pictures
+        checkedButtonIndex = radioButtons.length - 1;
     } else {
         radioButtons[checkedButtonIndex - 1].checked = true;
         checkedButtonIndex--;
@@ -93,7 +93,7 @@ function previousSlide() {
 
 function nextSlide() {
     // Go to first slide if currently on last slide.
-    if (checkedButtonIndex == 10) { // <--- Edit here.>
+    if (checkedButtonIndex == radioButtons.length - 1) { // <--- Edit here.>
         radioButtons[0].checked = true; 
         checkedButtonIndex = 0;
     } else {
