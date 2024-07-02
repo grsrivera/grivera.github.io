@@ -195,8 +195,10 @@ label[for="radio6"] {
 } 
 
 /* This is the only section that has to be tailored for each photo set, in case of design changes */
+/* Update: this part removed. This is done in the template.js file now so no user input required. Found in activeStyling() */
+/* 
 
-#radio0:checked ~ label[for="radio0"],
+ #radio0:checked ~ label[for="radio0"],
 #radio1:checked ~ label[for="radio1"],
 #radio2:checked ~ label[for="radio2"],
 #radio3:checked ~ label[for="radio3"],
@@ -206,6 +208,8 @@ label[for="radio6"] {
 #radio7:checked ~ label[for="radio7"],
 #radio8:checked ~ label[for="radio8"],
 #radio9:checked ~ label[for="radio9"],
-#radio10:checked ~ label[for="radio10"] {   /* <--- Add additional radio buttons here */
+#radio10:checked ~ label[for="radio10"] {    <--- Add additional radio buttons here 
     background: white;
-}
+} 
+
+*/
