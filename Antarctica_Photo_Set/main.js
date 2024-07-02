@@ -12,7 +12,6 @@ let radioButtonLabels = document.querySelectorAll('label[class=radio-button-labe
 let checkedButtonIndex;
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
-let i;
 
 // This function finds what radio button is checked
 
@@ -34,13 +33,24 @@ function findCheckedButton() {
 function moveStrips() {
     strip.style.marginLeft = -checkedButtonIndex * 820 + 'px';
 
-    if (checkedButtonIndex >= 6) {
-        labelStrip.style.marginLeft = -5*25 + 2 + 'px';  // -5*25px + 2px needed to center in viewport
-    } else {                                             // (n-1)*25px ... 25px is width of a button + 1 gap of 5px
-        labelStrip.style.marginLeft = "2px";
+// New 1 Start
+
+    if (checkedButtonIndex < 6) {
+        currentViewport = 1;
+    } else {
+        currentViewport = Math.ceil(((checkedButtonIndex + 1) - 6) / 5) + 1; // CheckedButtonIndex+1 to convert from index to normal count
     }
-    
-    activeStyling();
+
+    if (checkedButtonIndex < 6) {
+        labelStrip.style.marginLeft = "2px"
+    } else {
+        labelStrip.style.marginLeft = (currentViewport - 1) * (-125) + 2 + 'px'; // 125px is from 5 buttons at 20px and 5 gaps at 5px 
+    }
+
+
+// New 1 End
+
+    activeStyling(currentViewport);
 };
 
 // This function makes styling changes as the user clicks through the picture set
@@ -49,21 +59,25 @@ function moveStrips() {
 // 2. Update the display on the slide indicator
 //   a. The slide indicator disappears after some time then reappears when the user clicks
 
-function activeStyling() {
+function activeStyling(currentViewport) {
     // Update labels nodeList
     radioButtonLabels = document.querySelectorAll('label[class=radio-button-label]');
+    let lastViewport = Math.ceil(((radioButtonLabels.length - 1) - 6) / 5) + 1;
 
-    for (i=0; i < 11; i++) {
+    for (let i=0; i < radioButtonLabels.length - 1; i++) {
         radioButtonLabels[i].style.scale = "1.0";
     }
 
-    if (checkedButtonIndex > 5) {
-        radioButtonLabels[5].style.scale = "0.5";
-    } else {                                      
+    if (currentViewport == 1) {
         radioButtonLabels[6].style.scale = "0.5";
+    } else if (currentViewport == lastViewport) {
+        radioButtonLabels[1 + 5 * (currentViewport - 1) - 1].style.scale = "0.5";   //Index-1 to convert from normal to index
+    } else {
+        radioButtonLabels[1 + 5 * (currentViewport - 1) - 1].style.scale = "0.5";
+        radioButtonLabels[7 + 5 * (currentViewport - 1) - 1].style.scale = "0.5";
     }
 
-    slideIndicator.textContent = (checkedButtonIndex + 1) + '/11';
+    slideIndicator.textContent = (checkedButtonIndex + 1) + '/' + `${radioButtons.length}`;
 
     // Makes slide indicator appear and disappear
 
