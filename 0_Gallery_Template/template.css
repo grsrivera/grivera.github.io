@@ -101,6 +101,7 @@
     background: none;
     border: none;
     color: white;
+    margin: 0 10px;
 }
 
 @media (hover:hover) {
