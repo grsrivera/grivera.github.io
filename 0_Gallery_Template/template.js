@@ -27,6 +27,8 @@ function previousPicture() {
     }    
 
     openLightbox(galleryPictures[currentPictureIndex].src)
+
+    galleryPictures[currentPictureIndex].style.filter = "grayscale(1)";
 }
 
 function nextPicture() {
@@ -37,14 +39,12 @@ function nextPicture() {
     }
 
     openLightbox(galleryPictures[currentPictureIndex].src)
+
+    galleryPictures[currentPictureIndex].style.filter = "grayscale(1)";
 }
 
 // This set click event listener to each picture in the gallery to open the lightbox
 for (picture of galleryPictures) {
-    // The next two lines allow for indexing for the arrow functionality below
-    picture.id = `${n}`;
-    n++;
-
     picture.addEventListener("click", function() {
         currentPictureIndex = Number(this.id);   // This line feeds into previousPicture() and nextPicture()
 
@@ -53,6 +53,7 @@ for (picture of galleryPictures) {
         this.style.filter = "grayscale(1)";  //Grayscale pic after opened
     })
 };
+
 
 // Closes the lightbox when 'X' is clicked     
 xOnLightbox.addEventListener("click", closeLightbox);
