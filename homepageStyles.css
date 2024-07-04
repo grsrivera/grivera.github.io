@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: "Inter", "Arial", san-serif;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    /* grid-auto-rows: 200px; */
+    gap: 5px;
+}
+
+header {
+    padding: 20px 40px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.profile-pic {
+    grid-column: span 1;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    border: 2px solid rgb(0, 0, 0);
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-pic > img {
+    height: 3em;
+    width: 3em;
+    position: relative;
+    right: 2px;
+}
+
+header h1 {
+    grid-column: span 11;
+    position: relative;
+    /* height: 100px; */
+    align-content: center;
+}
+
+.intro {
+    margin: 0;
+    /* max-width: 1200px; */
+    padding: 20px 40px;
+}
+
+.intro p {
+    grid-column: 3 / 12;
+    text-align: start;
+}
+
+.intro .line1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.links {
+    /* max-width: 1200px; */
+    grid-column: span 12;
+    grid-auto-rows: 150px;
+    padding: 20px 40px;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.links .picture-holder {
+    grid-column: span 3;
+    text-align: center;
+    position: relative;
+}
+
+.links .four-column {
+    grid-column: span 4;
+    grid-row: span 2;
+}
+
+.links .five-column {
+    grid-column: span 5;
+    grid-row: span 2;
+}
+
+.links .six-column {
+    grid-column: span 6;
+    grid-row: span 2;
+}
+
+.links .seven-column {
+    grid-column: span 7;
+    grid-row: span 2;
+}
+
+.links .eight-column {
+    grid-column: span 8;
+    grid-row: span 2;
+}
+
+.links .picture-holder span {
+    color: white;
+    font-weight: 700;
+    font-size: 3vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: none;
+}
+
+.links a img {
+    /* grid-column: span 3; */
+    width: 100%;
+    height: 100%;
+    /* border-radius: 6px; */
+    cursor: pointer;
+    display: block;
+    object-fit: cover;
+}
+
+@media (hover:hover) {
+    .links .picture-holder a img:hover {
+        cursor: pointer;
+        transform: scale(1.009);
+        box-shadow: 2px 1px 24px -1px rgba(0,0,0,.7);
+    }
+
+    .links .picture-holder a:hover + span {
+        display: block;
+    }
+}
+
+@media(max-width: 650px) {
+    .intro p {
+        grid-column: 2 / 12;
+        text-align: start;
+        font-size: .9em;
+    }
+
+    .intro .line1 {
+        font-size: 1.2em;
+    }
+
+    .links {
+        grid-auto-rows: auto;
+        padding: 0 40px;
+    }
+
+    .links .four-column, 
+    .links .five-column,
+    .links .six-column, 
+    .links .seven-column, 
+    .links .eight-column {
+        grid-column: span 12;
+        grid-row: auto;
+    }
+
+    .link .picture-holder, .link .picture-holder a {
+        height: auto;
+    }
+
+    .links a img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+}
+
