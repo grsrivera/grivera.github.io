@@ -161,6 +161,16 @@ label[for="radio6"] {
     scale: 0.5;
 }
 
+.moving-label {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+    position: absolute;
+    z-index: 1;
+}
+
 .left-arrow, .right-arrow {
     margin: 0 30px; 
     transition: .5s;

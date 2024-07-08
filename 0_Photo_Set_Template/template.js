@@ -100,6 +100,10 @@ function activeStyling(currentViewport) {
             radioButtonLabels[button].style.background = "rgba(179, 177, 177, 0.703)";
         }
     }
+
+    // Moving button
+    let movingButton = document.querySelector(".moving-label");
+    movingButton.style.transform = `translateX(${25*checkedButtonIndex}px)`;
 }
 
 // These 2 functions are for the arrows. They change the checked radio button then calls moveStrips.
