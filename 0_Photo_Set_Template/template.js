@@ -218,3 +218,6 @@ function processSwipe() {
         previousSlide();
     }
 }
+
+// References:
+// 1. https://www.codeguage.com/courses/js/touch-events-basics
