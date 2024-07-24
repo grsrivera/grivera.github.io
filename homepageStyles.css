@@ -17,12 +17,13 @@ header {
     align-items: center;
     position: relative;
     margin-bottom: 0;
+    max-height: 110px;
 }
 
 .profile-pic {
     grid-column: span 1;
-    height: 3em;
-    width: 3em;
+    height: 6em;
+    width: 6em;
     border-radius: 50%;
     border: 2px solid rgb(0, 0, 0);
     margin: 0 auto;
@@ -30,9 +31,16 @@ header {
     position: relative;
 }
 
-.profile-pic > img {
+/* .profile-pic > img {
     height: 3em;
     width: 3em;
+    position: relative;
+    right: 2px;
+} */
+
+.profile-pic > img {
+    height: 6em;
+    width: 6em;
     position: relative;
     right: 2px;
 }
